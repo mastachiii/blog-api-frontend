@@ -1,29 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
-async function makeSignUpReq({ username, email, password, passwordConfirm, errMessagesHandler }) {
-    try {
-        await fetch("http://localhost:8080/sign-up", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username, email, password, passwordConfirm }),
-        })
-            .then(response => response.json())
-            .then(response => {
-                if (response.err) {
-                    errMessagesHandler(response.messages);
-                } else {
-                    window.location.replace("/log-in");
-                }
-            });
-    } catch (err) {
-        console.log(err);
-
-        window.location.replace("/");
-    }
-}
+import User from "../../helpers/userApi";
 
 export default function SignUp() {
     const [username, setUsername] = useState("");
@@ -35,7 +12,7 @@ export default function SignUp() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        makeSignUpReq({ username, email, password, passwordConfirm, errMessagesHandler: setErrMessages });
+        User.signUp({ username, email, password, passwordConfirm, errMessageHandler: setErrMessages });
     }
 
     return (

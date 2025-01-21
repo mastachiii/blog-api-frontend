@@ -32,6 +32,36 @@ class User {
             window.location.replace("/");
         }
     }
+
+    async signUp({ username, email, password, passwordConfirm, errMessageHandler }) {
+        try {
+            fetch(
+                this.signUpUrl,
+                this.getOptions({
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: {
+                        username,
+                        email,
+                        password,
+                        passwordConfirm,
+                    },
+                })
+            )
+                .then(response => response.json())
+                .then(data => {
+                    if (data.err) {
+                        errMessageHandler(data.messages);
+                    } else {
+                        window.location.replace("/log-in");
+                    }
+                });
+        } catch (err) {
+            console.log(err);
+
+            window.location.replace("/");
+        }
+    }
 }
 
 export default new User();
