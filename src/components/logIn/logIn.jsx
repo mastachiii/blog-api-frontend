@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Will convert to trycatch once error handling page is made..
 async function makeLogInReq({ username, password }) {
@@ -17,7 +18,7 @@ async function makeLogInReq({ username, password }) {
             });
     } catch (err) {
         console.log(err);
-        
+
         window.location.replace("/");
     }
 }
@@ -43,6 +44,7 @@ export default function LogIn() {
                 <label htmlFor="password">Password:</label>
                 <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
                 <button>Log in</button>
+                <Link to={"/sign-up"}>Dont have an account?</Link>
             </form>
         </div>
     );
