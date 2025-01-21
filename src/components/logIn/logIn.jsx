@@ -1,30 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
-async function makeLogInReq({ username, password, errMessageHandler }) {
-    try {
-        await fetch("http://localhost:8080/log-in", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username, password }),
-        })
-            .then(response => response.json())
-            .then(response => {
-                if (response.err) {
-                    errMessageHandler(response.message);
-                } else {
-                    localStorage.setItem("token", `Bearer ${response}`);
-                    window.location.replace("/");
-                }
-            });
-    } catch (err) {
-        console.log(err); // TODO: Error page
-
-        window.location.replace("/");
-    }
-}
+import User from "../../helpers/userApi";
 
 export default function LogIn() {
     const [username, setUsername] = useState("");
@@ -34,7 +10,7 @@ export default function LogIn() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        makeLogInReq({ username, password, errMessageHandler: setErrMessage });
+        User.logIn({ username, password, errMessageHandler: setErrMessage });
     }
 
     return (
