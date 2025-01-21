@@ -12,7 +12,6 @@ async function makeLogInReq({ username, password, errMessageHandler }) {
         })
             .then(response => response.json())
             .then(response => {
-                console.log(response);
                 if (response.err) {
                     errMessageHandler(response.message);
                 } else {

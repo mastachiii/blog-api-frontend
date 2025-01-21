@@ -13,7 +13,6 @@ async function makeSignUpReq({ username, email, password, passwordConfirm, errMe
             .then(response => response.json())
             .then(response => {
                 if (response.err) {
-                    // console.log(response);
                     errMessagesHandler(response.messages);
                 } else {
                     window.location.replace("/log-in");
@@ -38,8 +37,6 @@ export default function SignUp() {
 
         makeSignUpReq({ username, email, password, passwordConfirm, errMessagesHandler: setErrMessages });
     }
-
-    // console.log(errMessages)
 
     return (
         <div>
