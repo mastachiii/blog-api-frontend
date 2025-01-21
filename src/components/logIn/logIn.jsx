@@ -17,6 +17,7 @@ async function makeLogInReq({ username, password }) {
             });
     } catch (err) {
         console.log(err);
+        
         window.location.replace("/");
     }
 }
