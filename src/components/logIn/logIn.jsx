@@ -6,12 +6,15 @@ export default function LogIn() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errMessage, setErrMessage] = useState(null);
+    const user = localStorage.getItem("token");
 
     function handleSubmit(e) {
         e.preventDefault();
 
         User.logIn({ username, password, errMessageHandler: setErrMessage });
     }
+
+    if (user) window.location.href = "/";
 
     return (
         <div>

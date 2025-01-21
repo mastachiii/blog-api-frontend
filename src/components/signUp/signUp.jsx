@@ -8,12 +8,15 @@ export default function SignUp() {
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [errMessages, setErrMessages] = useState([]);
+    const user = localStorage.getItem("token");
 
     function handleSubmit(e) {
         e.preventDefault();
 
         User.signUp({ username, email, password, passwordConfirm, errMessageHandler: setErrMessages });
     }
+
+    if (user) window.location.href = "/";
 
     return (
         <div>
@@ -33,7 +36,7 @@ export default function SignUp() {
                 <label htmlFor="passwordConfirm">Confirm password:</label>
                 <input type="password" value={passwordConfirm} onChange={e => setPasswordConfirm(e.target.value)} id="password" />
                 <button>Sign-up</button>
-                <Link to={"/"}>Already have an account? </Link>
+                <Link to={"/log-in"}>Already have an account? </Link>
             </form>
         </div>
     );

@@ -23,13 +23,13 @@ class User {
                         errMessageHandler(data.message); // Rerender log in component and pass error messages..
                     } else {
                         localStorage.setItem("token", `Bearer ${data}`);
-                        window.location.replace("/");
+                        window.location.href = "/";
                     }
                 });
         } catch (err) {
             console.log(err);
 
-            window.location.replace("/");
+            window.location.href = "/";
         }
     }
 
@@ -53,13 +53,13 @@ class User {
                     if (data.err) {
                         errMessageHandler(data.messages);
                     } else {
-                        window.location.replace("/log-in");
+                        window.location.href = "/log-in";
                     }
                 });
         } catch (err) {
             console.log(err);
 
-            window.location.replace("/");
+            window.location.href = "/";
         }
     }
 }
