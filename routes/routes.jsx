@@ -6,7 +6,7 @@ import Index from "../src/components";
 import LogOut from "../src/components/logOut";
 
 function isAuthenticated() {
-    return localStorage.getItem("token");
+    return localStorage.getItem("token") !== undefined;
 }
 
 const route = createBrowserRouter([
