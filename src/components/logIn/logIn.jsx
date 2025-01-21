@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-async function makeLogInReq({ username, password }) {
+async function makeLogInReq({ username, password, errMessageHandler }) {
     try {
         await fetch("http://localhost:8080/log-in", {
             method: "POST",
@@ -10,10 +10,15 @@ async function makeLogInReq({ username, password }) {
             },
             body: JSON.stringify({ username, password }),
         })
-            .then(r => r.json())
-            .then(r => {
-                localStorage.setItem("token", `Bearer ${r}`);
-                window.location.replace("/");
+            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+                if (response.err) {
+                    errMessageHandler(response.message);
+                } else {
+                    localStorage.setItem("token", `Bearer ${response}`);
+                    window.location.replace("/");
+                }
             });
     } catch (err) {
         console.log(err); // TODO: Error page
@@ -25,17 +30,19 @@ async function makeLogInReq({ username, password }) {
 export default function LogIn() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errMessage, setErrMessage] = useState(null);
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        makeLogInReq({ username, password });
+        makeLogInReq({ username, password, errMessageHandler: setErrMessage });
     }
 
     return (
         <div>
             <h4>Log-In</h4>
             <form onSubmit={handleSubmit}>
+                {errMessage && <p>{errMessage}</p>}
                 <label htmlFor="username" id="username">
                     Username:
                 </label>
