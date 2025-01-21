@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-// Will convert to trycatch once error handling page is made..
 async function makeLogInReq({ username, password }) {
     try {
         await fetch("http://localhost:8080/log-in", {
@@ -17,7 +16,7 @@ async function makeLogInReq({ username, password }) {
                 window.location.replace("/");
             });
     } catch (err) {
-        console.log(err);
+        console.log(err); // TODO: Error page
 
         window.location.replace("/");
     }

@@ -1,4 +1,22 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+async function makeSignUpReq({ username, email, password, passwordConfirm }) {
+    try {
+        await fetch("http://localhost:8080/sign-up", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, email, password, passwordConfirm }),
+        }).then(() => window.location.replace("/"));
+        
+    } catch (err) {
+        console.log(err);
+
+        window.location.replace("/");
+    }
+}
 
 export default function SignUp() {
     const [username, setUsername] = useState("");
@@ -6,7 +24,11 @@ export default function SignUp() {
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
 
-    function handleSubmit() {}
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        makeSignUpReq({ username, email, password, passwordConfirm });
+    }
 
     return (
         <div>
@@ -21,6 +43,7 @@ export default function SignUp() {
                 <label htmlFor="passwordConfirm">Confirm password:</label>
                 <input type="password" value={passwordConfirm} onChange={e => setPasswordConfirm(e.target.value)} id="password" />
                 <button>Sign-up</button>
+                <Link to={"/"}>Already have an account? </Link>
             </form>
         </div>
     );
