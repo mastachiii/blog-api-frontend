@@ -8,7 +8,7 @@ export default function Index() {
     useEffect(() => {
         (async () => {
             const posts = await Blog.getAllPosts();
-            console.log(posts);
+            
             setPosts(posts);
         })();
     }, []);

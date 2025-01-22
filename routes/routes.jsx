@@ -4,6 +4,7 @@ import SignUp from "../src/components/signUp/signUp";
 import ProtectedRoute from "../src/components/protectedRoute";
 import Index from "../src/components";
 import LogOut from "../src/components/logOut";
+import Blog from "../src/components/blog";
 
 function isAuthenticated() {
     return localStorage.getItem("token") !== undefined;
@@ -28,7 +29,12 @@ const route = createBrowserRouter([
     },
     {
         element: <ProtectedRoute isAuthenticated={isAuthenticated()} />,
-        children: [],
+        children: [
+            {
+                path: "/posts/:id",
+                element: <Blog />,
+            },
+        ],
     },
 ]);
 
