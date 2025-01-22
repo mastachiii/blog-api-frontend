@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Blog from "../helpers/blogApi";
 import { useParams } from "react-router-dom";
 
-export default function Comment({ post, postHandler }) {
+export default function Comment() {
     const [comment, setComment] = useState("");
     const { id } = useParams();
 
@@ -12,7 +12,6 @@ export default function Comment({ post, postHandler }) {
         await Blog.createComment({ id, comment });
 
         setComment(""); // Force rerender after API call
-        postHandler();
     }
 
     return (

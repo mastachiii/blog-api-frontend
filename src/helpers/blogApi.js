@@ -46,7 +46,7 @@ class Blog {
 
     async createComment({ id, comment }) {
         try {
-            const data = await fetch(
+            const { data } = await fetch(
                 `${this.postsUrl}/${id}`,
                 this.getOptions({
                     method: "POST",
@@ -58,7 +58,7 @@ class Blog {
                 })
             ).then(response => response.json());
 
-            console.log(data)
+            return data;
         } catch (err) {
             console.log(err);
         }

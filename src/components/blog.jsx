@@ -23,7 +23,7 @@ export default function BlogPage() {
                 <p>{post.body}</p>
                 <div>
                     <h4>Comments</h4>
-                    <Comment postHandler={setPost} />
+                    <Comment />
                     {post.comments.map(c => {
                         return (
                             <span key={c.id}>
