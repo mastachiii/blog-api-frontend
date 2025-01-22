@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 export default function BlogPage() {
     const { id } = useParams();
-    const [post, setPost] = useState({});
+    const [post, setPost] = useState(null);
 
     useEffect(() => {
         (async () => {
@@ -14,11 +14,23 @@ export default function BlogPage() {
         })();
     }, [id]);
 
-    return (
-        <div>
-            <h2>{post.title}</h2>
-            <p>{post.createdAt}</p>
-            <p>{post.body}</p>
-        </div>
-    );
+    if (post) {
+        return (
+            <div>
+                <h2>{post.title}</h2>
+                <p>{post.createdAt}</p>
+                <p>{post.body}</p>
+                <div>
+                    <h4>Comments</h4>
+                    {post.comments.map(c => {
+                        return <span key={c.id}>
+                            <p>{c.User.username}</p>
+                            <p>{c.createdAt}</p>
+                            <p>{c.body}</p>
+                        </span>;
+                    })}
+                </div>
+            </div>
+        );
+    }
 }
