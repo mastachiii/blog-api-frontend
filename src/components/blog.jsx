@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Blog from "../helpers/blogApi";
+import Comment from "./comment";
 import { useParams } from "react-router-dom";
 
 export default function BlogPage() {
@@ -22,12 +23,15 @@ export default function BlogPage() {
                 <p>{post.body}</p>
                 <div>
                     <h4>Comments</h4>
+                    <Comment postHandler={setPost} />
                     {post.comments.map(c => {
-                        return <span key={c.id}>
-                            <p>{c.User.username}</p>
-                            <p>{c.createdAt}</p>
-                            <p>{c.body}</p>
-                        </span>;
+                        return (
+                            <span key={c.id}>
+                                <p>{c.User.username}</p>
+                                <p>{c.createdAt}</p>
+                                <p>{c.body}</p>
+                            </span>
+                        );
                     })}
                 </div>
             </div>

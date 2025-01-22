@@ -1,5 +1,4 @@
 // Interface for making API calls for Blog model.
-
 class Blog {
     constructor() {
         this.postsUrl = "http://localhost:8080/posts";
@@ -39,7 +38,27 @@ class Blog {
                 })
             ).then(response => response.json());
 
-            return post
+            return post;
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    async createComment({ id, comment }) {
+        try {
+            const data = await fetch(
+                `${this.postsUrl}/${id}`,
+                this.getOptions({
+                    method: "POST",
+                    headers: {
+                        Authorization: this.token,
+                        "Content-Type": "application/json",
+                    },
+                    body: { comment },
+                })
+            ).then(response => response.json());
+
+            console.log(data)
         } catch (err) {
             console.log(err);
         }
