@@ -16,14 +16,32 @@ class Blog {
 
     async getAllPosts() {
         try {
-            const posts = await fetch(this.postsUrl, this.getOptions({ method: "GET", headers: { Authorization: `${this.token}` } }))
+            const posts = await fetch(this.postsUrl, this.getOptions({ method: "GET", headers: { Authorization: this.token } }))
                 .then(response => response.json())
                 .then(data => data.posts);
 
             return posts;
         } catch (err) {
             console.log(err);
-            // window.location.href = "/";
+            // window.location.href = "/"; // really need an error page... causes infinite loop
+        }
+    }
+
+    async getPost({ id }) {
+        try {
+            const post = await fetch(
+                `${this.postsUrl}/${id}`,
+                this.getOptions({
+                    method: "GET",
+                    headers: {
+                        Authorization: this.token,
+                    },
+                })
+            ).then(response => response.json());
+
+            return post
+        } catch (err) {
+            console.log(err);
         }
     }
 }
