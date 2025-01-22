@@ -16,14 +16,14 @@ class Blog {
 
     async getAllPosts() {
         try {
-            const posts = await fetch(this.postsUrl, this.getOptions({ method: "GET", headers: { Authorization: `Bearer ${this.token}` } }))
+            const posts = await fetch(this.postsUrl, this.getOptions({ method: "GET", headers: { Authorization: `${this.token}` } }))
                 .then(response => response.json())
                 .then(data => data.posts);
 
             return posts;
         } catch (err) {
             console.log(err);
-            window.location.href = "/";
+            // window.location.href = "/";
         }
     }
 }

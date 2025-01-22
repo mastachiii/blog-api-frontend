@@ -21,6 +21,7 @@ export default function Index() {
                         return (
                             <li key={p.id}>
                                 <Link to={`/posts/${p.id}`}>{p.title}</Link>
+                                <p></p>
                             </li>
                         );
                     })}
