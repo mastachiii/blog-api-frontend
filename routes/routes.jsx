@@ -5,9 +5,11 @@ import ProtectedRoute from "../src/components/protectedRoute";
 import Index from "../src/components";
 import LogOut from "../src/components/logOut";
 import BlogPage from "../src/components/blog";
+import Error from "../src/components/error";
 
 function isAuthenticated() {
-    return localStorage.getItem("token") !== undefined;
+    console.log(localStorage.getItem("token") == false);
+    return localStorage.getItem("token") == false;
 }
 
 const route = createBrowserRouter([
@@ -35,6 +37,10 @@ const route = createBrowserRouter([
                 element: <BlogPage />,
             },
         ],
+    },
+    {
+        path: "/error",
+        element: <Error />,
     },
 ]);
 

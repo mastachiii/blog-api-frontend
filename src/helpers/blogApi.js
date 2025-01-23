@@ -22,7 +22,8 @@ class Blog {
             return posts;
         } catch (err) {
             console.log(err);
-            // window.location.href = "/"; // really need an error page... causes infinite loop
+
+            window.location.href = "/error";
         }
     }
 
@@ -41,6 +42,8 @@ class Blog {
             return post;
         } catch (err) {
             console.log(err);
+
+            window.location.href = "/error";
         }
     }
 
@@ -61,6 +64,8 @@ class Blog {
             return data;
         } catch (err) {
             console.log(err);
+
+            window.location.href = "/error";
         }
     }
 }

@@ -29,7 +29,7 @@ class User {
         } catch (err) {
             console.log(err);
 
-            window.location.href = "/";
+            window.location.href = "/error";
         }
     }
 
@@ -59,7 +59,7 @@ class User {
         } catch (err) {
             console.log(err);
 
-            window.location.href = "/";
+            window.location.href = "/error";
         }
     }
 }
