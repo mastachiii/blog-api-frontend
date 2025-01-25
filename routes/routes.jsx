@@ -49,7 +49,7 @@ const route = createBrowserRouter([
                 element: <Index isAuthor={true} />,
             },
             {
-                path: "/author/edit",
+                path: "/author/edit/:id",
                 element: <Editor method={"edit"} />,
             },
             {

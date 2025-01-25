@@ -30,6 +30,7 @@ export default function Index({ isAuthor }) {
                                 <Link to={`/posts/${p.id}`}>{p.title}</Link>
                                 {isAuthor && (
                                     <div>
+                                        <a href={`/author/edit/${p.id}`}>EDIT</a>
                                         <button onClick={() => handleDelete({ id: p.id })}>DELETE</button>
                                     </div>
                                 )}

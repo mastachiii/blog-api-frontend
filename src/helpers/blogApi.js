@@ -13,7 +13,7 @@ class Blog {
         };
     }
 
-    async createPost({ title, body, isPrivate }) {
+    async createPost({ title, body, isPrivate, backdropUrl }) {
         try {
             await fetch(
                 this.postsUrl,
@@ -23,7 +23,7 @@ class Blog {
                         Authorization: this.token,
                         "Content-Type": "application/json",
                     },
-                    body: { title, body, private: isPrivate },
+                    body: { title, body, backdropUrl, private: isPrivate },
                 })
             );
 

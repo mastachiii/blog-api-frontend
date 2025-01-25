@@ -19,8 +19,9 @@ export default function BlogPage() {
         return (
             <div>
                 <h2>{post.title}</h2>
+                <img src={post.backdropUrl} alt="Article image" style={{ width: "900px" }} />
                 <p>{post.createdAt}</p>
-                <div dangerouslySetInnerHTML={{__html:post.body}}></div>
+                <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
                 <div>
                     <h4>Comments</h4>
                     <Comment />
