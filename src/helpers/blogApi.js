@@ -5,7 +5,7 @@ class Blog {
         this.token = window.localStorage.getItem("token");
     }
 
-    getOptions({ method, headers, body }) {
+    getOptions({ method, body }) {
         return {
             method,
             headers: {
