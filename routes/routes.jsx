@@ -7,8 +7,11 @@ import LogOut from "../src/components/logOut";
 import BlogPage from "../src/components/blog";
 import Error from "../src/components/error";
 
-function isAuthenticated() {
-    return localStorage.getItem("token") !== false;
+function isAuthenticated({ type }) {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+
+    return type === "author" ? token && user === "mastachii" : token;
 }
 
 const route = createBrowserRouter([
@@ -29,7 +32,7 @@ const route = createBrowserRouter([
         element: <LogOut />,
     },
     {
-        element: <ProtectedRoute isAuthenticated={isAuthenticated()} />,
+        element: <ProtectedRoute isAuthenticated={isAuthenticated({ type: "user" })} />,
         children: [
             {
                 path: "/posts/:id",

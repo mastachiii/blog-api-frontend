@@ -22,7 +22,8 @@ class User {
                     if (data.err) {
                         errMessageHandler(data.message); // Rerender log in component and pass error messages..
                     } else {
-                        localStorage.setItem("token", `Bearer ${data}`);
+                        localStorage.setItem("token", `Bearer ${data.token}`);
+                        localStorage.setItem("user", data.user)
                         window.location.href = "/";
                     }
                 });
