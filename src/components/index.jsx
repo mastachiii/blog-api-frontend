@@ -6,8 +6,10 @@ import PropTypes from "prop-types";
 export default function Index({ isAuthor }) {
     const [posts, setPosts] = useState([]);
 
-    function handleDelete() {
-        alert('DELETED')
+    function handleDelete({ id }) {
+        const UserConfirmation = confirm("Are you sure you want to delete this post forever?");
+
+        if (UserConfirmation) Blog.deletePost({ id });
     }
 
     useEffect(() => {
@@ -28,7 +30,7 @@ export default function Index({ isAuthor }) {
                                 <Link to={`/posts/${p.id}`}>{p.title}</Link>
                                 {isAuthor && (
                                     <div>
-                                        <button onClick={handleDelete}>DELETE</button>
+                                        <button onClick={() => handleDelete({ id: p.id })}>DELETE</button>
                                     </div>
                                 )}
                             </li>

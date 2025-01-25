@@ -8,14 +8,16 @@ class Blog {
     getOptions({ method, headers, body }) {
         return {
             method,
-            headers,
+            headers: {
+                Authorization: this.token,
+            },
             body: JSON.stringify(body),
         };
     }
 
     async getAllPosts() {
         try {
-            const posts = await fetch(this.postsUrl, this.getOptions({ method: "GET", headers: { Authorization: this.token } }))
+            const posts = await fetch(this.postsUrl, this.getOptions({ method: "GET" }))
                 .then(response => response.json())
                 .then(data => data.posts);
 
@@ -33,13 +35,27 @@ class Blog {
                 `${this.postsUrl}/${id}`,
                 this.getOptions({
                     method: "GET",
-                    headers: {
-                        Authorization: this.token,
-                    },
                 })
             ).then(response => response.json());
 
             return post;
+        } catch (err) {
+            console.log(err);
+
+            window.location.href = "/error";
+        }
+    }
+
+    async deletePost({ id }) {
+        try {
+            await fetch(
+                `${this.postsUrl}/${id}`,
+                this.getOptions({
+                    method: "DELETE",
+                })
+            );
+
+            location.reload();
         } catch (err) {
             console.log(err);
 

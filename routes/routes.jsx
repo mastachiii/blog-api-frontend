@@ -11,7 +11,7 @@ function isAuthenticated({ type }) {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
 
-    return type === "author" ? token && user === "mastachii" : token;
+    return type === "author" ? token && user === "mastachii" : token != false;
 }
 
 const route = createBrowserRouter([
