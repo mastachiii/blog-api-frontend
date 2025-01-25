@@ -5,14 +5,34 @@ class Blog {
         this.token = window.localStorage.getItem("token");
     }
 
-    getOptions({ method, body }) {
+    getOptions({ method, body, headers = { Authorization: this.token } }) {
         return {
             method,
-            headers: {
-                Authorization: this.token,
-            },
+            headers,
             body: JSON.stringify(body),
         };
+    }
+
+    async createPost({ title, body, isPrivate }) {
+        try {
+            await fetch(
+                this.postsUrl,
+                this.getOptions({
+                    method: "POST",
+                    headers: {
+                        Authorization: this.token,
+                        "Content-Type": "application/json",
+                    },
+                    body: { title, body, private: isPrivate },
+                })
+            );
+
+            window.location.href = "/";
+        } catch (err) {
+            console.log(err);
+
+            window.location.href = "/error";
+        }
     }
 
     async getAllPosts() {

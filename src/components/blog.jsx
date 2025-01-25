@@ -20,7 +20,7 @@ export default function BlogPage() {
             <div>
                 <h2>{post.title}</h2>
                 <p>{post.createdAt}</p>
-                <p>{post.body}</p>
+                <div dangerouslySetInnerHTML={{__html:post.body}}></div>
                 <div>
                     <h4>Comments</h4>
                     <Comment />

@@ -50,7 +50,11 @@ const route = createBrowserRouter([
             },
             {
                 path: "/author/edit",
-                element: <Editor />,
+                element: <Editor method={"edit"} />,
+            },
+            {
+                path: "/author/create",
+                element: <Editor method={"create"} />,
             },
         ],
     },
