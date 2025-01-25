@@ -8,10 +8,6 @@ import BlogPage from "../src/components/blog";
 import Error from "../src/components/error";
 
 function isAuthenticated() {
-<<<<<<< HEAD
-    console.log(localStorage.getItem("token") == false);
-=======
->>>>>>> a58b902da19a1467e062aca40d6fd0845b2c904a
     return localStorage.getItem("token") !== false;
 }
 
