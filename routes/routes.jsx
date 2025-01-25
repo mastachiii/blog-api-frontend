@@ -8,8 +8,7 @@ import BlogPage from "../src/components/blog";
 import Error from "../src/components/error";
 
 function isAuthenticated() {
-    console.log(localStorage.getItem("token") == false);
-    return localStorage.getItem("token") == false;
+    return localStorage.getItem("token") !== false;
 }
 
 const route = createBrowserRouter([
