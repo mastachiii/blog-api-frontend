@@ -17,7 +17,7 @@ function isAuthenticated({ type }) {
 const route = createBrowserRouter([
     {
         path: "/",
-        element: <Index />,
+        element: <Index isAuthor={false} />,
     },
     {
         path: "/sign-up",
@@ -37,6 +37,15 @@ const route = createBrowserRouter([
             {
                 path: "/posts/:id",
                 element: <BlogPage />,
+            },
+        ],
+    },
+    {
+        element: <ProtectedRoute isAuthenticated={isAuthenticated({ type: "author" })} />,
+        children: [
+            {
+                path: "/author",
+                element: <Index isAuthor={true} />,
             },
         ],
     },
