@@ -23,6 +23,9 @@ export default function Index({ isAuthor }) {
     if (posts) {
         return (
             <div>
+                <div className="h-96 overflow-hidden mb-44">
+                    <img src="https://image.tmdb.org/t/p/original/8xuLnoLM8zJ5BgUjMPQ81Wi4u6k.jpg" alt="" className="object-contain" />
+                </div>
                 <ul>
                     {posts.map(p => {
                         return (
