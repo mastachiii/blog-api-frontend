@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import LogIn from "../src/components/logIn/logIn";
 import SignUp from "../src/components/signUp/signUp";
 import ProtectedRoute from "../src/components/protectedRoute";
-import Index from "../src/components";
+import Index from "../src/components/index/index";
 import LogOut from "../src/components/logOut";
 import BlogPage from "../src/components/blog";
 import Error from "../src/components/error";

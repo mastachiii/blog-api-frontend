@@ -1,0 +1,6 @@
+.imgContainer {
+    min-height: 30rem;
+    margin: 0;
+    background-image: url("https://image.tmdb.org/t/p/original/8xuLnoLM8zJ5BgUjMPQ81Wi4u6k.jpg");
+    background-size: cover;
+}
