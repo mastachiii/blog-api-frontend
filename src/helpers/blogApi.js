@@ -35,6 +35,28 @@ class Blog {
         }
     }
 
+    async updatePost({ title, body, isPrivate, backdropUrl, id }) {
+        try {
+            await fetch(
+                `${this.postsUrl}/${id}`,
+                this.getOptions({
+                    method: "PUT",
+                    headers: {
+                        Authorization: this.token,
+                        "Content-Type": "application/json",
+                    },
+                    body: { title, body, private: isPrivate, backdropUrl },
+                })
+            );
+
+            window.location.href = "/author";
+        } catch (err) {
+            console.log(err);
+
+            window.location.href = "/error";
+        }
+    }
+
     async getAllPosts() {
         try {
             const posts = await fetch(this.postsUrl, this.getOptions({ method: "GET" }))

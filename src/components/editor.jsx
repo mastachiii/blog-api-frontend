@@ -14,11 +14,12 @@ export default function Editor({ method }) {
             if (method !== "edit") return;
 
             const details = await Blog.getPost({ id });
-            const { title, body, backdropUrl } = details.data;
+            const { title, body, backdropUrl, isPrivate } = details.data;
             tinymce.get("editor").setContent(body);
-            
+
             setTitle(title);
             setBackdropUrl(backdropUrl);
+            setIsPrivate(isPrivate);
         })();
     }, [id, method]);
 
@@ -30,8 +31,16 @@ export default function Editor({ method }) {
         Blog.createPost({ title, body, isPrivate, backdropUrl });
     }
 
+    function handleUpdate(e) {
+        e.preventDefault();
+
+        const body = tinymce.get("editor").getContent();
+
+        Blog.updatePost({ title, body, isPrivate, backdropUrl, id });
+    }
+
     return (
-        <form onSubmit={method === "create" ? handleCreate : null}>
+        <form onSubmit={method === "create" ? handleCreate : handleUpdate}>
             <label htmlFor="title">Title: </label>
             <input type="text" value={title} onChange={e => setTitle(e.target.value)} id="title" required />
             <label htmlFor="backdrop">Artice Image: </label>
