@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Blog from "../helpers/blogApi";
+import Blog from "../../helpers/blogApi";
 import { useParams } from "react-router-dom";
 
 export default function Comment() {
@@ -16,10 +16,12 @@ export default function Comment() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <textarea value={comment} onChange={e => setComment(e.target.value)} />
-                <button>Comment</button>
-            </form>
+            {Blog.token ? (
+                <form onSubmit={handleSubmit}>
+                    <textarea value={comment} onChange={e => setComment(e.target.value)} />
+                    <button>Comment</button>
+                </form>
+            ) : null}
         </div>
     );
 }

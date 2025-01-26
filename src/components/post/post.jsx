@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Blog from "../../helpers/blogApi";
-import Comment from "../comment";
+import Comment from "../comment/comment";
 import { useParams } from "react-router-dom";
 import styles from "./post.module.css";
 import { format } from "date-fns";
