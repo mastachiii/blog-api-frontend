@@ -33,9 +33,12 @@
     }
 
     ul {
+        display: flex;
+        gap: 2rem;
         margin-left: 1.5rem;
+
         li {
-            width: fit-content;
+            max-width: 20rem;
             display: flex;
             flex-direction: column;
             padding: 1rem;

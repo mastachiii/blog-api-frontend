@@ -1,0 +1,29 @@
+@import "../../index.css";
+
+.postContainer {
+    max-width: 50rem;
+    margin: 2rem auto;
+    font-family: "Cabin Condensed";
+
+    img {
+        max-width: 50rem;
+    }
+
+    h2 {
+        margin: 1rem 0 0 0;
+        font-family: "Caveat";
+        font-size: 3rem;
+    }
+
+    > p {
+        margin-left: 0.5rem;
+        font-size: 0.7rem;
+    }
+}
+
+.bodyContainer {
+    h4 {
+        margin: 1.5rem 0;
+        font-size: 1.8rem;
+    }
+}

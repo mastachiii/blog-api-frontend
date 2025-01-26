@@ -4,7 +4,7 @@ import SignUp from "../src/components/signUp/signUp";
 import ProtectedRoute from "../src/components/protectedRoute";
 import Index from "../src/components/index/index";
 import LogOut from "../src/components/logOut";
-import BlogPage from "../src/components/blog";
+import BlogPage from "../src/components/post/post";
 import Error from "../src/components/error";
 import Editor from "../src/components/editor";
 
