@@ -1,6 +1,73 @@
+@import "../../index.css";
+
 .imgContainer {
     min-height: 30rem;
     margin: 0;
     background-image: url("https://image.tmdb.org/t/p/original/8xuLnoLM8zJ5BgUjMPQ81Wi4u6k.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -9rem;
+    position: relative;
+    z-index: -1;
+}
+
+.postsContainer {
+    margin-bottom: 8rem;
+    color: var(--text-color);
+    font-family: "Cabin Condensed", sans-serif;
+
+    h3 {
+        margin: 0;
+    }
+
+    h3:first-of-type {
+        margin-top: 8rem;
+        font-family: "Caveat", sans-serif;
+        font-size: 5rem;
+        text-align: center;
+    }
+
+    h3:nth-child(2) {
+        margin: 5rem 0 4rem 4rem;
+        font-size: 2rem;
+    }
+
+    ul {
+        margin-left: 1.5rem;
+        li {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            list-style-type: none;
+            transition: transform 200ms ease-in;
+
+            img {
+                width: 20rem;
+                margin-bottom: 7px;
+            }
+
+            a {
+                font-size: 1.5rem;
+                color: var(--text-color);
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            p {
+                margin: 0.3rem 0 0 0;
+                font-size: 0.7rem;
+                opacity: 75%;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+                border-radius: 1rem;
+                box-shadow: -3px -4px 53px -16px rgba(0, 0, 0, 0.69);
+            }
+        }
+    }
 }
