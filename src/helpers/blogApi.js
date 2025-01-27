@@ -27,7 +27,7 @@ class Blog {
                 })
             );
 
-            // window.location.href = "/";
+            window.location.href = "/author";
         } catch (err) {
             console.log(err);
 

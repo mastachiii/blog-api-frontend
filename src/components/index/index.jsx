@@ -34,6 +34,11 @@ export default function Index({ isAuthor }) {
                 <div className={styles.postsContainer}>
                     <h3>Komorebi</h3>
                     <h3>Posts</h3>
+                    {isAuthor && (
+                        <div>
+                            <a href="/author/create">Create Post</a>
+                        </div>
+                    )}
                     <ul>
                         {posts.map(p => {
                             return (
