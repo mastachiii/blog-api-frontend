@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import User from "../../helpers/userApi";
+import styles from "./logIn.module.css";
 
 export default function LogIn() {
     const [username, setUsername] = useState("");
@@ -17,7 +18,7 @@ export default function LogIn() {
     if (user) window.location.href = "/";
 
     return (
-        <div>
+        <div className={styles.logInContainer}>
             <h4>Log-In</h4>
             <form onSubmit={handleSubmit}>
                 {errMessage && <p>{errMessage}</p>}
@@ -27,8 +28,8 @@ export default function LogIn() {
                 <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
                 <label htmlFor="password">Password:</label>
                 <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-                <button>Log in</button>
-                <Link to={"/sign-up"}>Dont have an account?</Link>
+                <button>Log In</button>
+                <Link to={"/sign-up"}>Don't have an account?</Link>
             </form>
         </div>
     );
