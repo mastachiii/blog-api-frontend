@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styles from "./index.module.css";
 import { format } from "date-fns";
+import Loading from "../loading/loading";
 
 export default function Index({ isAuthor }) {
     const [posts, setPosts] = useState([]);
@@ -19,11 +20,13 @@ export default function Index({ isAuthor }) {
         (async () => {
             const posts = isAuthor ? await Blog.getAllPosts() : await Blog.getAllPublicPosts();
 
-            setPosts(posts);
+            setTimeout(() => {
+                setPosts(posts);
+            }, 1000);
         })();
     }, [isAuthor]);
 
-    if (posts) {
+    if (posts.length !== 0) {
         return (
             <div>
                 <div className={styles.imgContainer}></div>
@@ -61,7 +64,7 @@ export default function Index({ isAuthor }) {
             </div>
         );
     } else {
-        return <p>Hello world</p>;
+        return <Loading message={"Loading posts..."} />;
     }
 }
 

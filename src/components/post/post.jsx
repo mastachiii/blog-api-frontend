@@ -4,6 +4,7 @@ import Comment from "../comment/comment";
 import { useParams } from "react-router-dom";
 import styles from "./post.module.css";
 import { format } from "date-fns";
+import Loading from "../loading/loading";
 
 export default function BlogPage() {
     const { id } = useParams();
@@ -13,7 +14,9 @@ export default function BlogPage() {
         (async () => {
             const post = await Blog.getPost({ id });
 
-            setPost(post.data);
+            setTimeout(() => {
+                setPost(post.data);
+            }, 1000);
         })();
     }, [id]);
 
@@ -41,5 +44,7 @@ export default function BlogPage() {
                 </div>
             </div>
         );
+    } else {
+        return <Loading message={"Loading post..."} />;
     }
 }

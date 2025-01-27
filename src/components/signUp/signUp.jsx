@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import User from "../../helpers/userApi";
-import styles from "./signUp.module.css";
 
 export default function SignUp() {
     const [username, setUsername] = useState("");
