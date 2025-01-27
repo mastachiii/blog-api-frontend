@@ -19,6 +19,7 @@
             font-family: "Cabin Condensed";
             color: #ffffff;
             background-color: var(--text-color);
+            cursor: pointer;
         }
     }
 

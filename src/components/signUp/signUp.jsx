@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import User from "../../helpers/userApi";
+import styles from "./signUp.module.css";
 
 export default function SignUp() {
     const [username, setUsername] = useState("");
@@ -19,7 +20,7 @@ export default function SignUp() {
     if (user) window.location.href = "/";
 
     return (
-        <div>
+        <div className="signUpContainer">
             <h4>Sign up</h4>
             <form onSubmit={handleSubmit}>
                 <ul>

@@ -59,6 +59,25 @@ class Blog {
 
     async getAllPosts() {
         try {
+            const posts = await fetch(
+                `${this.postsUrl}/author`,
+                this.getOptions({
+                    method: "GET",
+                })
+            )
+                .then(response => response.json())
+                .then(data => data.posts);
+
+            return posts;
+        } catch (err) {
+            console.log(err);
+
+            window.location.href = "/error";
+        }
+    }
+
+    async getAllPublicPosts() {
+        try {
             const posts = await fetch(this.postsUrl, this.getOptions({ method: "GET" }))
                 .then(response => response.json())
                 .then(data => data.posts);

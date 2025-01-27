@@ -18,7 +18,7 @@ export default function LogIn() {
     if (user) window.location.href = "/";
 
     return (
-        <div className={styles.logInContainer}>
+        <div className="logInContainer">
             <h4>Log-In</h4>
             <form onSubmit={handleSubmit}>
                 {errMessage && <p>{errMessage}</p>}

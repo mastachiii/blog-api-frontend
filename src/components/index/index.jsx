@@ -17,11 +17,11 @@ export default function Index({ isAuthor }) {
 
     useEffect(() => {
         (async () => {
-            const posts = await Blog.getAllPosts();
+            const posts = isAuthor ? await Blog.getAllPosts() : await Blog.getAllPublicPosts();
 
             setPosts(posts);
         })();
-    }, []);
+    }, [isAuthor]);
 
     if (posts) {
         return (
@@ -35,7 +35,6 @@ export default function Index({ isAuthor }) {
                             return (
                                 <li key={p.id}>
                                     <img src={p.backdropUrl} alt="" />
-
                                     <Link to={`/posts/${p.id}`}>{p.title}</Link>
                                     <p>{format(new Date(p.createdAt), "PPP")}</p>
                                     {isAuthor && (
