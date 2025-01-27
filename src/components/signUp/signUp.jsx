@@ -47,6 +47,6 @@ export default function SignUp() {
             </div>
         );
     } else {
-        return <Loading />;
+        return <Loading message={"Creating account..."} />;
     }
 }

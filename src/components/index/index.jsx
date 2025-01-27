@@ -9,6 +9,7 @@ import Loading from "../loading/loading";
 export default function Index({ isAuthor }) {
     const [posts, setPosts] = useState([]);
     const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
 
     function handleDelete({ id }) {
         const UserConfirmation = confirm("Are you sure you want to delete this post forever?");
@@ -53,7 +54,12 @@ export default function Index({ isAuthor }) {
                 </div>
                 <div className={styles.logSignContainer}>
                     {token ? (
-                        <a href="/log-out">Log out</a>
+                        <div>
+                            <p>
+                                Logged in as <em>{user}</em>
+                            </p>
+                            <a href="/log-out">Log out</a>
+                        </div>
                     ) : (
                         <span>
                             <Link to="/log-in">Log in</Link>
