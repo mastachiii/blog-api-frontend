@@ -25,8 +25,10 @@ export default function Comment() {
             ) : (
                 <div>
                     <p>Log in to join the conversation!</p>
-                    <Link to="/log-in">Log in</Link>
-                    <Link to="/sign-up">Sign up</Link>
+                    <span>
+                        <Link to="/log-in">Log in</Link>
+                        <Link to="/sign-up">Sign up</Link>
+                    </span>
                 </div>
             )}
         </div>

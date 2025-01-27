@@ -9,3 +9,9 @@ body {
     background-color: #fde68a;
     margin: 0;
 }
+
+a {
+    font-family: "Cabin Condensed";
+    color: var(--text-color);
+    text-decoration: none;
+}

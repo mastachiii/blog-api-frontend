@@ -7,6 +7,7 @@ import { format } from "date-fns";
 
 export default function Index({ isAuthor }) {
     const [posts, setPosts] = useState([]);
+    const token = localStorage.getItem("token");
 
     function handleDelete({ id }) {
         const UserConfirmation = confirm("Are you sure you want to delete this post forever?");
@@ -47,6 +48,16 @@ export default function Index({ isAuthor }) {
                             );
                         })}
                     </ul>
+                </div>
+                <div className={styles.logSignContainer}>
+                    {token ? (
+                        <a href="/log-out">Log out</a>
+                    ) : (
+                        <span>
+                            <Link to="/log-in">Log in</Link>
+                            <Link to="/sign-up">Sign up</Link>
+                        </span>
+                    )}
                 </div>
             </div>
         );

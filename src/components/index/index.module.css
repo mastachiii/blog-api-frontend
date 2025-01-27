@@ -74,3 +74,23 @@
         }
     }
 }
+
+.logSignContainer {
+    margin: 4rem 0;
+    text-align: center;
+
+    a {
+        font-style: italic;
+        color: #3b82f6;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    span {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+}
