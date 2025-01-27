@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Blog from "../../helpers/blogApi";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import styles from "./comment.module.css";
 
 export default function Comment() {
     const [comment, setComment] = useState("");
@@ -15,13 +16,19 @@ export default function Comment() {
     }
 
     return (
-        <div>
+        <div className={styles.commentContainer}>
             {Blog.token ? (
                 <form onSubmit={handleSubmit}>
-                    <textarea value={comment} onChange={e => setComment(e.target.value)} />
+                    <textarea value={comment} onChange={e => setComment(e.target.value)} placeholder="......"/>
                     <button>Comment</button>
                 </form>
-            ) : null}
+            ) : (
+                <div>
+                    <p>Log in to join the conversation!</p>
+                    <Link to="/log-in">Log in</Link>
+                    <Link to="/sign-up">Sign up</Link>
+                </div>
+            )}
         </div>
     );
 }

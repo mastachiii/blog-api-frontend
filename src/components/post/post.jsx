@@ -24,7 +24,7 @@ export default function BlogPage() {
                 <h2>{post.title}</h2>
                 <p>{format(new Date(post.createdAt), "PPP").toUpperCase()}</p>
                 <div dangerouslySetInnerHTML={{ __html: post.body }} className={styles.bodyContainer}></div>
-                <div>
+                <div className={styles.commentContainer}>
                     <h4>Comments</h4>
                     <Comment />
                     {post.comments.map(c => {

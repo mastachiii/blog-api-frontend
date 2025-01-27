@@ -1,0 +1,50 @@
+.commentContainer {
+    margin-bottom: 2.5rem;
+    form {
+        display: flex;
+        flex-direction: column;
+
+        textarea {
+            width: 80%;
+            padding: 0.5rem 0.5rem 1rem 0.5rem;
+            margin-bottom: 1rem;
+            resize: none;
+        }
+
+        button {
+            width: 10%;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 2rem;
+            font-family: "Cabin Condensed";
+            color: #ffffff;
+            background-color: var(--text-color);
+        }
+    }
+
+    div {
+        font-size: 1.3rem;
+        text-align: center;
+
+        a {
+            font-size: 1rem;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        a:first-of-type {
+            margin-right: 1rem;
+            padding: 0.8rem;
+            border-radius: 2rem;
+            background-color: var(--text-color);
+            color: #ffffff;
+        }
+
+        a:nth-of-type(2) {
+            color: var(--text-color);
+        }
+    }
+}
