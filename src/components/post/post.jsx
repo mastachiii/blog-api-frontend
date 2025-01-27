@@ -27,15 +27,17 @@ export default function BlogPage() {
                 <div className={styles.commentContainer}>
                     <h4>Comments</h4>
                     <Comment />
-                    {post.comments.map(c => {
-                        return (
-                            <span key={c.id}>
-                                <p>{c.User.username}</p>
-                                <p>{format(new Date(c.createdAt), "PPP").toUpperCase()}</p>
-                                <p>{c.body}</p>
-                            </span>
-                        );
-                    })}
+                    <div>
+                        {post.comments.map(c => {
+                            return (
+                                <span key={c.id}>
+                                    <p>{c.User.username}</p>
+                                    <p>{format(new Date(c.createdAt), "PPP").toUpperCase()}</p>
+                                    <p>{c.body}</p>
+                                </span>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         );

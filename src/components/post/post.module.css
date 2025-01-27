@@ -30,8 +30,35 @@
 
 .commentContainer {
     margin: 6rem 0 8rem 0;
+
     h4 {
         font-size: 1.8rem;
         font-style: italic;
+    }
+
+    div:last-of-type {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        span {
+            p {
+                margin: 0.2rem 0 0 0;
+            }
+
+            p:first-of-type {
+                font-size: 0.9rem;
+                font-style: italic;
+            }
+
+            p:nth-of-type(2) {
+                font-size: 0.6rem;
+                opacity: 60%;
+            }
+
+            p:nth-of-type(3) {
+                margin-top: 0.8rem;
+            }
+        }
     }
 }
