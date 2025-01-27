@@ -23,7 +23,7 @@ class User {
                         errMessageHandler(data.message); // Rerender log in component and pass error messages..
                     } else {
                         localStorage.setItem("token", `Bearer ${data.token}`);
-                        localStorage.setItem("user", data.user)
+                        localStorage.setItem("user", data.user);
                         window.location.href = "/";
                     }
                 });
@@ -49,13 +49,15 @@ class User {
                     },
                 })
             )
-                .then(response => response.json())
-                .then(data => {
-                    if (data.err) {
-                        errMessageHandler(data.messages);
+                .then(response => {
+                    if (response.status === 204) {
+                        return (window.location.href = "/log-in");
                     } else {
-                        window.location.href = "/log-in";
+                        return response.json();
                     }
+                })
+                .then(data => {
+                    if (data.err) errMessageHandler(data.messages);
                 });
         } catch (err) {
             console.log(err);
