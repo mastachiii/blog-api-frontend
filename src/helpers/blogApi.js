@@ -1,7 +1,7 @@
 // Interface for making API calls for Blog model.
 class Blog {
     constructor() {
-        this.postsUrl = "http://localhost:8080/posts";
+        this.postsUrl = "https://blog-api-backend-ncee.onrender.com/posts";
         this.token = window.localStorage.getItem("token");
     }
 

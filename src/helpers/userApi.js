@@ -2,8 +2,8 @@
 
 class User {
     constructor() {
-        this.signUpUrl = "http://localhost:8080/sign-up";
-        this.logInUrl = "http://localhost:8080/log-in";
+        this.signUpUrl = "https://blog-api-backend-ncee.onrender.com/sign-up";
+        this.logInUrl = "https://blog-api-backend-ncee.onrender.com/log-in";
     }
 
     getOptions({ method, headers, body }) {
