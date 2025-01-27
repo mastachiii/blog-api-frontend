@@ -45,6 +45,12 @@
             list-style-type: none;
             transition: transform 200ms ease-in;
 
+            &:hover {
+                transform: scale(1.1);
+                border-radius: 1rem;
+                box-shadow: -3px -4px 53px -16px rgba(0, 0, 0, 0.69);
+            }
+
             img {
                 width: 20rem;
                 margin-bottom: 7px;
@@ -66,10 +72,32 @@
                 opacity: 75%;
             }
 
-            &:hover {
-                transform: scale(1.1);
-                border-radius: 1rem;
-                box-shadow: -3px -4px 53px -16px rgba(0, 0, 0, 0.69);
+            > div {
+                display: flex;
+                align-items: center;
+                justify-content: end;
+                gap: 1rem;
+
+                a,
+                button {
+                    font-size: 0.7rem;
+                }
+
+                a {
+                    margin-top: 0.15rem;
+                }
+
+                button {
+                    background: none;
+                    border: none;
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
         }
     }

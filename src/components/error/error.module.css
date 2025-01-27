@@ -1,0 +1,16 @@
+.errorContainer {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Cabin Condensed";
+
+    a {
+        color: #3b82f6;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
